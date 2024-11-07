@@ -1,23 +1,41 @@
-public class Entete extends TexteCentre {
-    private String titre;
-    private String auteur;
-    private Date date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+public class Entete  {
+    private TexteCentre titre;
+    private TexteCentre auteur;
+    private TexteCentre date;
     public Entete(String titre,String auteur, Date date){
-        super(titre)
-        this.titre=titre;
-        this.auteur=auteur;
-        this.date=date;
+        this.titre=new TexteCentre(titre);
+        this.auteur=new TexteCentre(auteur);
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        this.date=new TexteCentre(formatDate.format(date));
     }
 
     public Entete(String titre,String auteur){
-        this.titre=titre;
-        this.auteur=auteur;
-        this.date=new Date();
-
+        this.titre=new TexteCentre(titre);
+        this.auteur=new TexteCentre(auteur);
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        Date date=new Date();
+        this.date=new TexteCentre(formatDate.format(date));
     }
 
     public void fixeLargeur(int l){
-        this.largeur=l;
+        titre.fixeLargeur(l);
+        auteur.fixeLargeur(l);
+        date.fixeLargeur(l);
+    }
+
+    public String toString(){
+        StringBuilder resultat = new StringBuilder();
+        resultat.append( titre.toString()+"\n");
+        resultat.append( auteur.toString()+"\n");
+        resultat.append( date.toString());
+
+        return resultat.toString();
+
+
+
     }
 
 

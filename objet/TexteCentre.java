@@ -14,6 +14,7 @@ public class TexteCentre {
 	}
 
 
+
 	public void fixeLargeur(int l) {
 		largeur = l;
 	}
@@ -24,11 +25,11 @@ public class TexteCentre {
 	}
 
 	public String toString() {
-		int justification;
+		int marge;
 		StringBuilder resultat = new StringBuilder();
 
-		justification = (largeur - texte.length()) / 2;
-		for (int i = 0; i < justification; i++) {
+		marge = (largeur - texte.length()) / 2;
+		for (int i = 0; i < marge; i++) {
 			resultat.append(' ');
 		}
 		resultat.append(texte);

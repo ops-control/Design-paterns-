@@ -3,14 +3,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class TestEntete {
-	/**
-	 * Test de la classe Entête :
-	 * <ul>
-	 * <li>construit un entête pour l'oeuvre "Candide" (date fixée) et l'affiche avec une largeur de 50
-	 * <li>construit un second entête avec la date du jour et l'affiche avec la largeur par défaut
-	 * </ul>
-	 * @param args non utilisé
-	 */
+
 	public static void main(String args[]) {
 		Calendar cal = Calendar.getInstance();
 		cal.set(1759, 01, 01);
