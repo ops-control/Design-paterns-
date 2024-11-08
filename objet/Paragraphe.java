@@ -19,12 +19,46 @@ public class Paragraphe{
         int res=0;
         int nbcar=largeur;
         for( String e:mots){
-            while(nbcar>0){
-                if(nbcar-e.length()==0 && nbcar-e.length()< 0){
+            if(nbcar>0){
+                if(nbcar-e.length()==0) {
                     res=res+1;
+                    nbcar=largeur;
                 }
+                else if (nbcar-e.length()< 0){
+                    res=res+1;
+                    nbcar=largeur-e.length()-1;
+
+                }
+                else{
+                    nbcar=nbcar-e.length()-1;
+                }
+            }
         }
+        return res;
+    }
+
+    public String toString(){
+        int nbcar=largeur;
+        StringBuilder paragraphe=new StringBuilder();
+        for( String e:mots){
+            if(nbcar>0){
+                if(nbcar-e.length()==0) {
+                    paragraphe.append(e+"\n");
+                    nbcar=largeur;
+                }
+                else if (nbcar-e.length()< 0){
+                    paragraphe.append("\n"+e+" ");
+                    nbcar=largeur-e.length()-1;
+
+                }
+                else{
+                    paragraphe.append(e+" ");
+                    nbcar=nbcar-e.length()-1;
+                }
+            }
+        }
+        return paragraphe.toString();
 
     }
 
-}
+}    
