@@ -37,16 +37,17 @@ public class Paragraphe{
         return res;
     }
 
+ 
     public String toString(){
         int nbcar=largeur;
         StringBuilder paragraphe=new StringBuilder();
         for( String e:mots){
-            if(nbcar>0){
+
                 if(nbcar-e.length()==0) {
                     paragraphe.append(e+"\n");
                     nbcar=largeur;
                 }
-                else if (nbcar-e.length()< 0){
+                else if (nbcar-e.length()< 0||nbcar==0){
                     paragraphe.append("\n"+e+" ");
                     nbcar=largeur-e.length()-1;
 
@@ -55,7 +56,7 @@ public class Paragraphe{
                     paragraphe.append(e+" ");
                     nbcar=nbcar-e.length()-1;
                 }
-            }
+
         }
         return paragraphe.toString();
 
